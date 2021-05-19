@@ -40,7 +40,7 @@ class Degree extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '${(weather?.main?['temp'] - 273.15).toString().substring(0, 1)}',
+                  '${double.parse((weather?.main?['temp'] - 273.15).toString()).round()}',
                   style: GoogleFonts.openSans(
                     fontSize: 90,
                     color: color,

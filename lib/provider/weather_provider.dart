@@ -12,16 +12,18 @@ class WeatherProvider extends ChangeNotifier {
   String cityPhotoAdd = 'assets/city/london.jpg';
   String weatherImage = 'assets/images/sunny.jpeg';
   String weatherIcon = 'assets/images/cloud.png';
+  bool error = true;
 
   List<Weather?> get weatherData => _weatherData;
 
   Future weatherRequest({String? city}) async {
+    error = false;
     if (city != null) {
       cityName = city;
     }
     var response = await http.get(
       Uri.parse(
-          'http://api.openweathermap.org/data/2.5/weather?q=$cityName&appid=$yuorId'),
+          'http://api.openweathermap.org/data/2.5/weather?q=$cityName&appid=$YourId'),
     );
     if (response.statusCode == 200) {
       Map data = jsonDecode(response.body);
@@ -30,6 +32,8 @@ class WeatherProvider extends ChangeNotifier {
       afterLoad.add(result);
       _weatherData = afterLoad;
       loaded = true;
+    } else if (response.statusCode == 404) {
+      error = true;
     }
     notifyListeners();
   }

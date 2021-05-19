@@ -46,6 +46,7 @@ class DegreeScreen extends StatelessWidget {
     return Scaffold(
       body: Consumer<WeatherProvider>(
         builder: (context, weather, child) {
+          print('build');
           return Stack(
             children: [
               Container(
@@ -59,11 +60,13 @@ class DegreeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(decoration: BoxDecoration(color: Colors.black26),),
+              Container(
+                decoration: BoxDecoration(color: Colors.black26),
+              ),
               !weather.loaded
                   ? Center(
                       child: CircularProgressIndicator(
-                        color: Colors.black,
+                        color: Colors.blueAccent,
                         strokeWidth: 2,
                       ),
                     )
@@ -89,14 +92,14 @@ class DegreeScreen extends StatelessWidget {
                           child: Align(
                             alignment: Alignment.bottomLeft,
                             child: Degree(
-                              weather: weather.weatherData[0],
-                              imageAdd: weather.weatherIcon,
-                              size: size
-                            ),
+                                weather: weather.weatherData[0],
+                                imageAdd: weather.weatherIcon,
+                                size: size),
                           ),
-                        )
+                        ),
+                        // weather.error ? _showToast(size) : Text(''),
                       ],
-                    )
+                    ),
             ],
           );
         },

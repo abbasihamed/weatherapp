@@ -54,6 +54,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       await context
                           .read<WeatherProvider>()
                           .weatherRequest(city: textController.text);
+
                       await widget.controller?.previousPage(
                           duration: Duration(seconds: 1),
                           curve: Curves.ease);
@@ -64,6 +65,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     iconSize: 32,
                   ),
                   Container(
+                    alignment: Alignment.center,
                     margin: EdgeInsets.only(right: size.width * 0.01),
                     padding: EdgeInsets.only(bottom: size.height * 0.01),
                     width: size.width * 0.85,
@@ -72,29 +74,31 @@ class _SearchScreenState extends State<SearchScreen> {
                         border: Border.all(color: Colors.white),
                         borderRadius:
                         BorderRadius.all(Radius.circular(10))),
-                    child: TextField(
-                      focusNode: node,
-                      controller: textController,
-                      style: GoogleFonts.openSans(fontSize: 18),
-                      cursorColor: Colors.white,
-                      cursorHeight: 25,
-                      textInputAction: TextInputAction.search,
-                      onSubmitted: (value) async {
-                        await context
-                            .read<WeatherProvider>()
-                            .weatherRequest(city: value);
-                        await widget.controller?.previousPage(
-                            duration: Duration(seconds: 1),
-                            curve: Curves.ease);
-                        node.unfocus();
-                      },
-                      decoration: InputDecoration(
-                        hintText: 'City...',
-                        hintStyle:
-                        GoogleFonts.habibi(color: Colors.black38),
-                        border: InputBorder.none,
-                        contentPadding:
-                        EdgeInsets.symmetric(horizontal: 10),
+                    child: Center(
+                      child: TextField(
+                        focusNode: node,
+                        controller: textController,
+                        style: GoogleFonts.openSans(fontSize: 18),
+                        cursorColor: Colors.white,
+                        cursorHeight: 25,
+                        textInputAction: TextInputAction.search,
+                        onSubmitted: (value) async {
+                          await context
+                              .read<WeatherProvider>()
+                              .weatherRequest(city: value);
+                          await widget.controller?.previousPage(
+                              duration: Duration(seconds: 1),
+                              curve: Curves.ease);
+                          node.unfocus();
+                        },
+                        decoration: InputDecoration(
+                          hintText: 'City...',
+                          hintStyle:
+                          GoogleFonts.habibi(color: Colors.black38),
+                          border: InputBorder.none,
+                          contentPadding:
+                          EdgeInsets.symmetric(horizontal: 10),
+                        ),
                       ),
                     ),
                   ),
@@ -112,5 +116,6 @@ class _SearchScreenState extends State<SearchScreen> {
     // TODO: implement dispose
     super.dispose();
     textController.dispose();
+    // widget.controller?.dispose();
   }
 }
