@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_app/model/weather_model.dart';
 
+// ignore: must_be_immutable
 class Detail extends StatelessWidget {
   Weather? weather;
   Color? color;
@@ -17,7 +18,7 @@ class Detail extends StatelessWidget {
           width: 10,
         ),
         Text(
-          '${weather?.wind?['speed'] ?? 0}',
+          '${weather?.wind?['humidity'] ?? 0}',
           style: GoogleFonts.openSansCondensed(
             color: color,
             fontSize: 25,
@@ -32,7 +33,7 @@ class Detail extends StatelessWidget {
           width: size!.width * 0.015,
         ),
         Text(
-          '${weather?.main?['humidity'] ?? 0}',
+          '${weather?.main?['speed'] ?? 0}',
           style: GoogleFonts.openSansCondensed(
             color: color,
             fontSize: 25,

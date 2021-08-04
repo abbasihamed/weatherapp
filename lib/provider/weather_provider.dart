@@ -23,7 +23,7 @@ class WeatherProvider extends ChangeNotifier {
     }
     var response = await http.get(
       Uri.parse(
-          'http://api.openweathermap.org/data/2.5/weather?q=$cityName&appid=$YourId'),
+          'http://api.openweathermap.org/data/2.5/weather?q=$cityName&appid=caca50a29e67d93ce788cb95599d84c2'),
     );
     if (response.statusCode == 200) {
       Map data = jsonDecode(response.body);

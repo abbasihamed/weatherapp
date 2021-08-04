@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:weather_app/provider/weather_provider.dart';
 import 'package:weather_app/widget/degree.dart';
 
+// ignore: must_be_immutable
 class DegreeScreen extends StatelessWidget {
   DateTime now = DateTime.now();
 

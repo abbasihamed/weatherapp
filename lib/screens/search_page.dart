@@ -18,9 +18,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery
-        .of(context)
-        .size;
+    final size = MediaQuery.of(context).size;
     final photo = Provider.of<WeatherProvider>(context, listen: false);
     photo.searchPhoto();
     return Scaffold(
@@ -56,8 +54,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           .weatherRequest(city: textController.text);
 
                       await widget.controller?.previousPage(
-                          duration: Duration(seconds: 1),
-                          curve: Curves.ease);
+                          duration: Duration(seconds: 1), curve: Curves.ease);
                       node.unfocus();
                     },
                     icon: Icon(Icons.search),
@@ -72,8 +69,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     height: size.height * 0.065,
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.white),
-                        borderRadius:
-                        BorderRadius.all(Radius.circular(10))),
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
                     child: Center(
                       child: TextField(
                         focusNode: node,
@@ -93,11 +89,9 @@ class _SearchScreenState extends State<SearchScreen> {
                         },
                         decoration: InputDecoration(
                           hintText: 'City...',
-                          hintStyle:
-                          GoogleFonts.habibi(color: Colors.black38),
+                          hintStyle: GoogleFonts.habibi(color: Colors.black38),
                           border: InputBorder.none,
-                          contentPadding:
-                          EdgeInsets.symmetric(horizontal: 10),
+                          contentPadding: EdgeInsets.symmetric(horizontal: 10),
                         ),
                       ),
                     ),
@@ -113,9 +107,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     textController.dispose();
-    // widget.controller?.dispose();
   }
 }

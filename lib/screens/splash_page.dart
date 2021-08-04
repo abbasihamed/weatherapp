@@ -14,7 +14,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     checkLoad();
   }
@@ -42,6 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    // print(size.height);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(

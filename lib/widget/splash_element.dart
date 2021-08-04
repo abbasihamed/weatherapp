@@ -14,10 +14,8 @@ class SplashElements extends StatelessWidget {
       child: Container(
         height: size!.height * 0.22,
         width: size!.width * 0.35,
-        decoration: BoxDecoration(
-          color: Colors.blue,
-          borderRadius: borderRadius
-        ),
+        decoration:
+            BoxDecoration(color: Colors.blue, borderRadius: borderRadius),
       ),
     );
   }
