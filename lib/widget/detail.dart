@@ -18,7 +18,7 @@ class Detail extends StatelessWidget {
           width: 10,
         ),
         Text(
-          '${weather?.wind?['humidity'] ?? 0}',
+          '${weather?.wind?['speed'] ?? 0}',
           style: GoogleFonts.openSansCondensed(
             color: color,
             fontSize: 25,
@@ -33,7 +33,7 @@ class Detail extends StatelessWidget {
           width: size!.width * 0.015,
         ),
         Text(
-          '${weather?.main?['speed'] ?? 0}',
+          '${weather?.main?['humidity'] ?? 0}',
           style: GoogleFonts.openSansCondensed(
             color: color,
             fontSize: 25,
